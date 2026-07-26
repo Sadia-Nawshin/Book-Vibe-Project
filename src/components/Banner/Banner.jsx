@@ -3,17 +3,18 @@ import BannerBook from "../../assets/banner-book.webp";
 
 const Banner = () => {
     return (
-        <div className="flex m-2 justify-around w-full items-center bg-gray-200">
-            <div className="m-2">
-                <p>Books to freshen up your bookshelf</p>
-                <button className='border-2 p-1 rounded-[5px] m-3'>View The List</button>
-            </div>
-            
+        <div className="hero bg-gray-200 mt-8 mb-8 rounded-2xl h-[354px]">
+        <div className="hero-content flex-col lg:flex-row-reverse">
+            <img src={BannerBook}
+            className="max-w-sm rounded-lg shadow-2xl"/>
             <div className=''>
-                <img className="w-3/12" src={BannerBook} alt="" />
-            </div>
+            <h1 className="text-5xl font-bold mr-20">Books to freshen up <br />your bookshelf</h1>
             
+            <button className='btn btn-success border-2 p-1 rounded-[5px] mt-10 text-white'>View The List</button>
+            </div>
         </div>
+        </div>
+        
     );
 };
 
