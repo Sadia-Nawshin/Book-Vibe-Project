@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router";
 import Root from "../pages/Root/root";
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import Home from "../pages/Home/home";
+import About from '../pages/About/about';
 
 export const router = createBrowserRouter([
   {
@@ -12,8 +13,13 @@ export const router = createBrowserRouter([
     children:[
         {
             index: true,
+            loader:()=>fetch("../../../public/booksData.json"),
             path: "/",
             Component: Home
+        },
+        {
+          path: "/about",
+          Component: About
         }
     ]
   },
