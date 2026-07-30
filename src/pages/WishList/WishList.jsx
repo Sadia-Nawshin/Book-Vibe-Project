@@ -5,19 +5,16 @@ import 'react-tabs/style/react-tabs.css';
 import { getStoredBook } from '../../utility/addToDB';
 import Book from '../Book/book';
 
-
-const ReadList = () => {
-    const [readList, setReadList] = useState([])
+const WishList = () => {
+    const [wishList, setWishList] = useState([])
     const [sort, setSort] = useState("");
     const data = useLoaderData();
     useEffect(()=>{
         const storedBookData = getStoredBook()
         const convertedStoredBook = storedBookData.map(id => parseInt(id))
-        const myReadList = data.filter(book => convertedStoredBook.includes(book.bookId))
-        setReadList(myReadList)
+        const myWishList = data.filter(book => convertedStoredBook.includes(book.bookId))
+        setReadList(myWishList)
     },[])
-
-
 
     const handleSort = (type) => {
         setSort(type)
@@ -40,19 +37,18 @@ const ReadList = () => {
             </TabList>
 
             <TabPanel>
-            <h2>My ReadList, books i read {readList.length}</h2>
-            {
-                readList.map(b=><Book key={b.bookId} singleBook={b}></Book>)
-            }
+            <h2>My ReadList</h2>
             </TabPanel>
 
-
             <TabPanel>
-            <h2>My Wishlist</h2>
+            <h2>My WishList, books I wish to read {wishList.length}</h2>
+            {
+                wishList.map(b=><Book key={b.bookId} singleBook={b}></Book>)
+            }
             </TabPanel>
         </Tabs>
         </div>
     );
 };
 
-export default ReadList;
+export default WishList;

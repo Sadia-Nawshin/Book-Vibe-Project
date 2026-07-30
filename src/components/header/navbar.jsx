@@ -7,6 +7,8 @@ const navbar = () => {
         <Link to="/"><li className='m-2 border-2 border-green-300 p-2 rounded-[5px]'>Home</li></Link>
         <Link to="/about"><li className='m-2'>About</li></Link>
         <Link to="/readlist"><li className='m-2'>ReadList</li></Link>
+        <Link to="/wishlist"><li className='m-2'>WishList</li></Link>
+
         
         <li className='m-2'>Pages To Read</li>
     </>
