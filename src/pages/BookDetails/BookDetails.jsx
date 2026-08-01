@@ -34,7 +34,9 @@ const BookDetails = () => {
     }
 
     return (
+        
         <div className='mx-auto flex'>
+            <title>{bookName}</title>
             <div className='bg-gray-100 w-1050 h-150 m-5 rounded-[8px] mx-auto flex justify-center items-center'>
                 <img src={image} className='w-52 h-full object-contain' alt="" />
             </div>
