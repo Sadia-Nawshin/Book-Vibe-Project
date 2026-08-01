@@ -1,6 +1,11 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { addToStoredDB } from '../../utility/addToDB';
+import { addToStoredWishDB } from '../../utility/addToDB';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+const MySwal = withReactContent(Swal);
 
 const BookDetails = () => {
     const {id} = useParams();
@@ -11,9 +16,23 @@ const BookDetails = () => {
     const {bookName, image, author, category, review, tags, publisher, totalPages, yearOfPublishing, rating} = singleBook;
 
     const handleRead = id =>{
+        MySwal.fire({
+        title: "Good job!",
+        text: "You have finished reading the book!",
+        icon: "success"
+});
         addToStoredDB(id)
     }
-    
+
+    const handleWish = id =>{
+        MySwal.fire({
+        title: "Good job!",
+        text: "The book has been added to your wishlist!",
+        icon: "success"
+});
+        addToStoredWishDB(id)
+    }
+
     return (
         <div className='mx-auto flex'>
             <div className='bg-gray-100 w-1050 h-150 m-5 rounded-[8px] mx-auto flex justify-center items-center'>
@@ -45,7 +64,7 @@ const BookDetails = () => {
 
 
                 <button onClick={() => handleRead(id)} className='btn btn-info m-2'>Read</button>
-                <button className='btn btn-accent m-2'>WishList</button>
+                <button onClick={() => handleWish(id)} className='btn btn-accent m-2'>WishList</button>
             </div>
             
         </div>

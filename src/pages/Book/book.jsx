@@ -8,7 +8,7 @@ const Book = ({singleBook}) => {
    // const { bookName, author } = singleBook;
     console.log(singleBook)
     
-    const {bookName, author, image, publisher, category, rating, tags, bookId} = singleBook;
+    const {bookName, author, image, publisher, category, rating, tags, bookId, totalPages} = singleBook;
     return (
         
         <Link to={`/bookDetails/${bookId}`}>
@@ -23,9 +23,13 @@ const Book = ({singleBook}) => {
                 tags.map(tag => <button className='text-green-600 font-semibold m-2 p-2 rounded-[8px] bg-green-50'>{tag}</button>)
                 }
             </div>
+           <div className='flex items-center'> 
+                <h2 className="card-title mr-2">{bookName}</h2>
+                <p className='p-4'>{totalPages}</p>
+            </div>
+
+             <p>By : {author}</p>
             
-            <h2 className="card-title">{bookName}</h2>
-            <p>By : {author}</p>
 
            
             <div className="card-actions border-t-2 border-dashed mt-2">

@@ -18,10 +18,17 @@ const ReadList = () => {
     },[])
 
 
-
     const handleSort = (type) => {
         setSort(type)
+        if (type === "pages") {
+            const sortedByPages = [...readList].sort((a, b) => a.totalPages - b.totalPages);
+            setReadList(sortedByPages);
+        }
+        if (type === "ratings") {
+            const sortedByRatings = [...readList].sort((a, b) => a.rating - b.rating);
+            setReadList(sortedByRatings);}
     }
+
 
     return (
         <div>
@@ -48,7 +55,8 @@ const ReadList = () => {
 
 
             <TabPanel>
-            <h2>My Wishlist</h2>
+            <h2>My Wishlist, Books that I wish to read </h2>
+            
             </TabPanel>
         </Tabs>
         </div>
